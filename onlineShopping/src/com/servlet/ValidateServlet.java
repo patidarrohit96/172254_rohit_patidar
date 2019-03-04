@@ -38,7 +38,7 @@ public class ValidateServlet extends HttpServlet {
 		
 		
 		try {
-			if(user.read(email, pass)==1)
+			if(user.validate(email, pass)==1)
 			{  
 			   	session.setAttribute("uname", email);
 			    response.sendRedirect("index.jsp");

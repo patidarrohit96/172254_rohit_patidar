@@ -1,9 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@ page import="java.io.*,java.util.*,java.sql.*"%>
+<%@ page import="javax.servlet.http.*,javax.servlet.*" %>
+
+    <%@page import= " java.io.IOException" %>
+    <%@page import= "source.*" %>
+    <%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.PreparedStatement"%>
+<%@page import="java.sql.Connection"%>
+    
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <title>Flipkart</title>
+ <title>Flipkart</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
@@ -53,34 +63,45 @@
        
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><span class="glyphicon glyphicon-user"></span><%=request.getSession().getAttribute("uname") %> </a>your account</li>
+        <li><a href="#"><span class="glyphicon glyphicon-user"></span><%=request.getSession().getAttribute("uname") %> </a></li>
         <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
       </ul>
     </div>
   </div>
 </nav>
+<table border="1">
+<tr>
+<td>CODE</td>
+<td>NAME</td>
+<td>PRICE</td>
 
- <div class="row">
-    <div class="col-sm-4" ><img src="image3.png" height="300" width="300"><a href=""></a></div>
-    <div class="col-sm-4" ><img src="image7.jpg" height="300" width="300"><a href=""></a></div>
-    <div class="col-sm-4" ><img src="image5.jpg" height="300" width="300"><a href=""></a></div>
-  </div>
-   <div class="row">
-    <div class="col-sm-4" align center ><a  href="Mobile.jsp">Mobile</a></div>
-    <div class="col-sm-4" align center ><a href="Laptop.jsp">Laptop</a></div>
-    <div class="col-sm-4" align center ><a  href="Dslr.jsp">DSLR</a></div>
-  </div>
-  <br>
-  <br>
-  <br>
 
-     <footer class="container-fluid text-center">
-  <p>Flipkart Copyright</p>  
-  
-     <li><a href="contact.html">CONTACT</a></li>
-      <li><a href="about.html">ABOUT US</a></li>
-  
-</footer>
-      
-  </body>
+</tr>
+<% 
+PreparedStatement statement = null;
+ResultSet resultSet = null;
+try{
+Connection conn = ConnectionFactory.getConnection();
+String sql ="select * from product";
+statement=conn.prepareStatement(sql);
+
+resultSet = statement.executeQuery();
+while(resultSet.next()){
+%>
+<tr>
+<td><%=resultSet.getString("CODE") %></td>
+<td><%=resultSet.getString("NAME") %></td>
+<td><%=resultSet.getFloat("PRICE") %></td>
+<td><a href="Cart.jsp" onclick="productId()">Buy Now</a></td>
+</tr>
+<%
+}
+
+} catch (SQLException e) {
+e.printStackTrace();
+
+}
+%> 
+</table>
+</body>
 </html>

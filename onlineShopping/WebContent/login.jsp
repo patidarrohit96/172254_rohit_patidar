@@ -41,7 +41,7 @@
         <li ><a href="index.jsp">HOME</a></li>
         <li class="active"><a href="login.jsp">LOGIN</a></li>
          <li><a href="registration.jsp">REGISTER</a></li>
-        <li><a href="#">PRODUCT LIST</a></li>
+        <li><a href="ProductListServlet">PRODUCT LIST</a></li>
        
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -52,7 +52,7 @@
   </div>
 </nav>
 <div class="container">
-<div style="color:red">${message}</div>
+<div style="color:green">${message}</div>
   <h2><b>LOGIN</b></h2>
   <form action="ValidateServlet" method="post">
     <div class="form-group">
@@ -70,6 +70,8 @@
     <button type="submit" class="btn btn-default">Submit</button>
   </form>
 </div>
+
+ <a  style="color:green"  href = "registration.jsp" ><p style="text-align:center">New user click here</a>
 <% session.setAttribute("message", null); %>
 <br>
  <br>

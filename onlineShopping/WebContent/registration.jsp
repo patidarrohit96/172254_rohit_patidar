@@ -37,7 +37,7 @@
         <li><a href="index.jsp">HOME</a></li>
         <li><a href="login.jsp">LOGIN</a></li>
          <li class="active"><a href="registration.jsp">REGISTER</a></li>
-        <li><a href="#">PRODUCT LIST</a></li>
+        <li><a href="ProductListServlet">PRODUCT LIST</a></li>
        
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -62,6 +62,7 @@
     <button type="submit" class="btn btn-default">Submit</button>
   </form>
 </div>
+<a  style="color:green"  href = "login.jsp" ><p style="text-align:center">already user click here</a>
 <% session.setAttribute("emessage", null); %>
 
 <br>

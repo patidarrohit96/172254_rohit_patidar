@@ -19,7 +19,7 @@ public class UserAccountDao {
 		return output;
 		}
 	
-	public   int read(String email, String password) throws SQLException {
+	public   int validate(String email, String password) throws SQLException {
 		int i=0;
 		String query="select COUNT(*) from USER_ACCOUNT where email= ? and password=?";
 		Connection conn = ConnectionFactory.getConnection();

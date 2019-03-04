@@ -42,7 +42,7 @@ public class UserRegistrationServlet extends HttpServlet {
 			i=user.insert(email,password);
 			if(i==1)
 			{
-				session.setAttribute("message", "succesfully registerd");
+				session.setAttribute("message", "succesfully registerd, Login now");
 				 response.sendRedirect("login.jsp");
 			}
 			} 
