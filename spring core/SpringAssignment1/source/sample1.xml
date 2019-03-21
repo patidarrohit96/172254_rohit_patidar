@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+<beans>
+	<bean id="customer" class="com.pojo.Customer">
+	<property name="customerAddress" ref="address1"></property>
+	<property name="customerContact" value="8234918615"></property>
+	<property name="customerName" value="Rohit"></property>
+	<property name="customerId" value="1130"></property>
+	
+	</bean>
+	
+	<bean id="address1" class="com.pojo.Address">
+		<property name="street" value="graphite india"></property>
+		<property name="city" value="Bangalore"></property>
+		<property name="state" value="Karnataka"></property>
+		<property name="country" value="India"></property>
+		<property name="zip" value="560037"></property>
+	</bean>
+	
+	
+</beans>
